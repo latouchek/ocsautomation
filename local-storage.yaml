@@ -1,0 +1,43 @@
+apiVersion: "local.storage.openshift.io/v1"
+kind: "LocalVolume"
+metadata:
+  name: "local-disks-mon"
+  namespace: "local-storage"
+spec:
+  nodeSelector:
+    nodeSelectorTerms:
+    - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+            - ocp4-worker1.mycluster.lab.local
+            - ocp4-worker2.mycluster.lab.local
+            - ocp4-worker3.mycluster.lab.local
+  storageClassDevices:
+    - storageClassName: "local-sc-mon"
+      volumeMode: Filesystem
+      fsType: xfs
+      devicePaths:
+        - /dev/vdb
+---
+apiVersion: "local.storage.openshift.io/v1"
+kind: "LocalVolume"
+metadata:
+  name: "local-disks-osd"
+  namespace: "local-storage"
+spec:
+  nodeSelector:
+    nodeSelectorTerms:
+    - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+            - ocp4-worker1.mycluster.lab.local
+            - ocp4-worker2.mycluster.lab.local
+            - ocp4-worker3.mycluster.lab.local
+  storageClassDevices:
+    - storageClassName: "local-sc-osd"
+      volumeMode: Block
+      devicePaths:
+        - /dev/vdc
+        - /dev/vdd
