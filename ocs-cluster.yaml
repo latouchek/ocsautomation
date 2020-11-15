@@ -34,7 +34,7 @@ spec:
       limits: {}
   storageDeviceSets:
   - name: ocs-deviceset
-    count: 1
+    count: 2
     resources: {}
     placement: {}
     dataPVCTemplate:
