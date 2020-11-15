@@ -1,4 +1,4 @@
-# How to deploy OpenShift Container Storage 4 in OCP 4.5 with no GUI involved
+# How to deploy OpenShift Container Storage 4 in OCP 4.6 with no GUI involved
 
 
 
@@ -6,13 +6,13 @@
 
 So I wanted to deploy OCS in my Lab and after reading the excellent blog post from [Muhammad Aizuddin Zali](https://www.techbeatly.com/2020/01/red-hat-openshift-container-storage-4-2-installation.html#.XxKBJmMzaZT), I decided to add some automation to get rid of GUI actions during deployment.
 
- The purpose of this post is to show how to deploy and configure in an automated manner, OCS in an Openshift 4.5 lab. In this setup OCS operator will create an hyperconverged Ceph Cluster using Workers local disks. In order to do so we will also need to deploy the Local Storage Operator.
+ The purpose of this post is to show how to deploy and configure in an automated manner, OCS in an Openshift 4.6 lab. In this setup OCS operator will create an hyperconverged Ceph Cluster using Workers local disks. In order to do so we will also need to deploy the Local Storage Operator.
 
 
 
 ## Lab Overview
 * KVM host 256Go of RAM + 500Go SSD
-* UPI baremetal OCP 4.5 deployment
+* UPI baremetal OCP 4.6 deployment
 * All oc commands are issued from a CentOS 8 bastion node
 * 3 Masters (16Go of RAM) and 3 Workers (32Go of RAM) VMs
 ```bash
